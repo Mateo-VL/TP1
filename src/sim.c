@@ -579,7 +579,6 @@ Instruction decode(uint32_t instruction)
         return b;
     }
     uint32_t opcode = extract_bits(instruction, 24, 31);
-    printf("%0x \n", opcode);
     switch (opcode)
     {
     case 0xab:
@@ -668,8 +667,6 @@ Instruction decode(uint32_t instruction)
 void process_instruction()
 {
     Instruction inst = decode(mem_read_32(NEXT_STATE.PC));
-    printf("%i ", inst);
-    printf("%s \n", instruction_names[inst]);
     switch (inst)
     {
     case HLT:
